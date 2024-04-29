@@ -11,10 +11,11 @@ RE Dynamic Binary Visualization is an Reverse Engineering algorithm originally m
 
 This can seem a bit nonsense but it actually generates really interesting patterns depending on the sequence of bytes. Here are some examples (you can see all these files in the `examples` folder):
 
-- Image file generated: ![Image](./examples/output/bliss.out.png)
-- Normal text file generated: ![Text](./examples/output/this.out.png)
-- Executable generated: ![Executable](./examples/output/program.out.png)
-- Audio file generated: ![Audio](./examples/output/starwars.out.png)
+
+
+| **Text** | **Image** | **Executable** | **Audio** |
+| --- | --- | --- | --- |
+| ![Text](./examples/output/lorem.out.png)  | ![Image](./examples/output/bliss.out.png) | ![Executable](./examples/output/program.out.png) | ![Audio](./examples/output/starwars.out.png) |
 
 
 > Reference: [4 2 1 Christopher Domas The future of RE Dynamic Binary Visualization](https://www.youtube.com/watch?v=4bM3Gut1hIk&t=0s) and [Christopher Domas aka the delta axiom The Future of RE Dynamic Binary Visualization](https://www.youtube.com/watch?v=sUSFGXFo-Pw)
