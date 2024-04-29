@@ -69,6 +69,8 @@ def main() -> None:
     if isdir(args.path):
         for p in listdir(args.path):
             p = pathjoin(args.path, p)
+            if isdir(p):
+                continue
             domas(p, args.output, COLORS[args.background], COLORS[args.foreground])
         return
 

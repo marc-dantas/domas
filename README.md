@@ -1,5 +1,21 @@
 # Domas
-Domas is a very simple console application I built to implement the Dynamic Binary Visualization algorithm described by Christopher Domas.
+Domas is a very simple console application I built to implement a Dynamic Binary Visualization algorithm. This algorithm was described by Christopher Domas (that's why it's called Domas), and its purpose is to detect file types by making a very simple file analysis.
+
+> "_If we change the way we process binary information... we find unexpected ways of making sense of it_".
+
+## How it works
+
+> **DISCLAIMER**: I'm not Christopher Domas, so maybe all this explanation is just wrong. I'm just saying what **I** understood about the idea.
+
+RE Dynamic Binary Visualization is an Reverse Engineering algorithm originally made to identify patterns in sequences of bytes by iterating over all the pairs of bytes and drawing a point on an image, threating the byte pair like (x, y) coordinates.
+
+This can seem a bit nonsense but it actually generates really interesting patterns depending on the sequence of bytes. Here are some examples (you can see all these files in the `examples` folder):
+
+- Image file generated: ![Image](./examples/output/bliss.out.png)
+- Normal text file generated: ![Text](./examples/output/this.out.png)
+- Executable generated: ![Executable](./examples/output/program.out.png)
+- Audio file generated: ![Audio](./examples/output/starwars.out.png)
+
 
 > Reference: [4 2 1 Christopher Domas The future of RE Dynamic Binary Visualization](https://www.youtube.com/watch?v=4bM3Gut1hIk&t=0s) and [Christopher Domas aka the delta axiom The Future of RE Dynamic Binary Visualization](https://www.youtube.com/watch?v=sUSFGXFo-Pw)
 
