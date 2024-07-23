@@ -82,7 +82,7 @@ $ python src/domas.py ./examples
 
 | **4 2 1 Christopher Domas The future of RE Dynamic Binary Visualization** | **Christopher Domas aka the delta axiom The Future of RE Dynamic Binary Visualization** |
 | --- | --- |
-| ![Video 1](https://www.youtube.com/watch?v=sUSFGXFo-Pw) | ![Video 2](https://www.youtube.com/watch?v=4bM3Gut1hIk&t=0s) | 
+| [![Video 1](https://img.youtube.com/vi/sUSFGXFo-Pw/0.jpg)](https://www.youtube.com/watch?v=sUSFGXFo-Pw) | [![Video 2](https://img.youtube.com/vi/4bM3Gut1hIk/0.jpg)](https://www.youtube.com/watch?v=4bM3Gut1hIk) | 
 
 ---
 
