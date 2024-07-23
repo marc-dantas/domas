@@ -55,6 +55,9 @@ Here are some files with the smooth flag enabled:
 #### The `--background` and `--foreground` flags
 You can also customize the final generated image using the `--foreground` and `--background` flags, these are all the possible colors:
 
+> Background is the color of the background itself of the image.
+> Foreground is the color of the pixels plotted onto the image. 
+
 - White: `white`
 - Black: `black`
 - Red: `red`
@@ -67,7 +70,7 @@ Here are some customized images:
 
 | **Text** | **Image** | **Executable** | **Audio** |
 | --- | --- | --- | --- |
-| ![Text](./examples/output/color/lorem.out.png)  | ![Image](./examples/output/color/bliss.out.png) | ![Executable](./examples/output/color/program.out.png) | ![Audio](./examples/output/color/starwars.out.png) |
+| ![Text](./examples/output/color/lorem.out.png) <br> `white` and  `black` | ![Image](./examples/output/color/bliss.out.png) <br> `red` and `blue` | ![Executable](./examples/output/color/program.out.png) <br> `blue` and `red` | ![Audio](./examples/output/color/starwars.out.png) <br> `black` and `yellow` |
 
 
 ### Examples
