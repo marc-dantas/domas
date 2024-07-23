@@ -17,8 +17,6 @@ This can seem a bit nonsense but it actually generates really interesting patter
 | ![Text](./examples/output/lorem.out.png)  | ![Image](./examples/output/bliss.out.png) | ![Executable](./examples/output/program.out.png) | ![Audio](./examples/output/starwars.out.png) |
 
 
-> Reference: [4 2 1 Christopher Domas The future of RE Dynamic Binary Visualization](https://www.youtube.com/watch?v=4bM3Gut1hIk&t=0s) and [Christopher Domas aka the delta axiom The Future of RE Dynamic Binary Visualization](https://www.youtube.com/watch?v=sUSFGXFo-Pw)
-
 ## Getting Started
 
 ### Setup
@@ -79,6 +77,12 @@ There's a directory which has some files to play around with. You can generate t
 ```console
 $ python src/domas.py ./examples
 ```
+
+## Reference
+
+| **4 2 1 Christopher Domas The future of RE Dynamic Binary Visualization** | **Christopher Domas aka the delta axiom The Future of RE Dynamic Binary Visualization** |
+| --- | --- |
+| <iframe width="300" height="200" src="https://www.youtube.com/watch?v=sUSFGXFo-Pw"></iframe> | <iframe width="300" height="200" src="https://www.youtube.com/watch?v=4bM3Gut1hIk&t=0s"></iframe> | 
 
 ---
 
