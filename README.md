@@ -1,4 +1,4 @@
-# Domas
+p´p# Domas
 Domas is a very simple console application I built to implement a Dynamic Binary Visualization algorithm. This algorithm was described by Christopher Domas (that's why it's called Domas), and its purpose is to detect file types by making a very simple file analysis.
 
 > "_If we change the way we process binary information... we find unexpected ways of making sense of it_".
@@ -10,7 +10,6 @@ Domas is a very simple console application I built to implement a Dynamic Binary
 RE Dynamic Binary Visualization is an Reverse Engineering algorithm originally made to identify patterns in sequences of bytes by iterating over all the pairs of bytes and drawing a point on an image, threating the byte pair like (x, y) coordinates.
 
 This can seem a bit nonsense but it actually generates really interesting patterns depending on the sequence of bytes. Here are some examples (you can see all these files in the `examples` folder):
-
 
 
 | **Text** | **Image** | **Executable** | **Audio** |
@@ -40,8 +39,20 @@ To use Domas, just run the main script file at the `src` directory:
 $ python3 src/domas.py
 ```
 
-If you do not provide any file, the help message will show and from that you can start messing around...
+See all the flags by the help message (use `-h` or `--help` flag).
 
+#### The `--smooth` flag
+
+If you are dealing with big files, it's helpful to use the `--smooth` flag to make final results more satisfying in terms of potential amount of information.
+when `-s` (or `--smooth`) is turned on, it is applied a smooth brightness adjustment to each pixel based on pixel frequency.
+
+Here are some files with the smooth flag enabled:
+
+| **Text** | **Image** | **Executable** | **Audio** |
+| --- | --- | --- | --- |
+| ![Text](./examples/output/smooth/lorem.out.png)  | ![Image](./examples/output/smooth/bliss.out.png) | ![Executable](./examples/output/smooth/program.out.png) | ![Audio](./examples/output/smooth/starwars.out.png) |
+
+#### The `--background` and `--foreground` flags
 You can also customize the final generated image using the `--foreground` and `--background` flags, these are all the possible colors:
 
 - White: `white`
@@ -51,6 +62,13 @@ You can also customize the final generated image using the `--foreground` and `-
 - Blue: `blue`
 - Purple: `purple`
 - Yellow: `yellow`
+
+Here are some customized images:
+
+| **Text** | **Image** | **Executable** | **Audio** |
+| --- | --- | --- | --- |
+| ![Text](./examples/output/color/lorem.out.png)  | ![Image](./examples/output/color/bliss.out.png) | ![Executable](./examples/output/color/program.out.png) | ![Audio](./examples/output/color/starwars.out.png) |
+
 
 ### Examples
 There's a directory which has some files to play around with. You can generate the images for each file inside the folder by running:
