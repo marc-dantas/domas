@@ -1,4 +1,4 @@
-p´p# Domas
+# Domas
 Domas is a very simple console application I built to implement a Dynamic Binary Visualization algorithm. This algorithm was described by Christopher Domas (that's why it's called Domas), and its purpose is to detect file types by making a very simple file analysis.
 
 > "_If we change the way we process binary information... we find unexpected ways of making sense of it_".
