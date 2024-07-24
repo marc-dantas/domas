@@ -50,6 +50,24 @@ Here are some files with the smooth flag enabled:
 | --- | --- | --- | --- |
 | ![Text](./examples/output/smooth/lorem.out.png)  | ![Image](./examples/output/smooth/bliss.out.png) | ![Executable](./examples/output/smooth/program.out.png) | ![Audio](./examples/output/smooth/starwars.out.png) |
 
+#### The `--format` flag
+
+You can choose one of the following image formats to generate:
+
+- PNG (default): `png`
+- GIF: `gif`
+- JPEG: `jpg` or `jpeg`
+- BMP: `bmp` or `bitmap`
+
+Use `-f`/`--format` to specify the file format of the final generated image, for example:
+
+```console
+$ python src/domas.py path/to/file -f png
+$ python src/domas.py path/to/file -f jpeg
+$ python src/domas.py path/to/file -f bitmap
+...
+```
+
 #### The `--background` and `--foreground` flags
 You can also customize the final generated image using the `--foreground` and `--background` flags, these are all the possible colors:
 
