@@ -6,7 +6,7 @@ from os.path import exists, isdir, splitext
 from os.path import join as pathjoin
 from typing import Union
 from sys import stderr
-from PIL import Image
+from PIL import Image, ImageDraw
 
 COLORS = {
     'white': (255, 255, 255, 255),
@@ -54,9 +54,8 @@ def parse_args() -> Namespace:
                    help="output filename to write the final image")
     p.add_argument("-s", "--smooth", required=False, action="store_true",
                    help="apply smooth brightness adjustment based on pixel frequency")
-    # TODO: Add scaling process to images to make it bigger
-    # p.add_argument("-x", "--scale", required=False, default="1",
-    #                help="apply scaling to the final image in times (default 1x 256x256)")
+    p.add_argument("-x", "--scale", required=False, default="1",
+                   help="apply scaling to the final image in times (default 1x 256x256)")
     p.add_argument("-f", "--format", required=False, default="png",
                    help="change format of the final image (default PNG)")
     p.add_argument("--background", required=False,
@@ -74,7 +73,12 @@ def smooth_color(c1: tuple, c2: tuple, factor: float, multiplier: int) -> tuple:
         255
     )
 
-def domas(path: str, o: Union[str, None], color: tuple, smooth: bool, f: Format) -> None:
+def domas(path: str,
+          o: Union[str, None],
+          color: tuple,
+          smooth: bool,
+          scale: int,
+          f: Format) -> None:
     bg = COLORS['black'] if color[0] is None else color[0]
     fg = COLORS['white'] if color[1] is None else color[1]
 
@@ -82,7 +86,8 @@ def domas(path: str, o: Union[str, None], color: tuple, smooth: bool, f: Format)
         print(f"domas: error: no such file {path}.", file=stderr)
         exit(1)
     
-    image = Image.new(mode="RGB", size=(256, 256), color=bg)
+    image = Image.new(mode="RGB", size=(256*scale, 256*scale), color=bg)
+    draw = ImageDraw.Draw(image)
     data = defaultdict(int)
 
     with open(path, "rb") as file:
@@ -91,10 +96,15 @@ def domas(path: str, o: Union[str, None], color: tuple, smooth: bool, f: Format)
             data[coord] += 1
 
     for coord, fact in data.items():
+        x1 = coord[0] * scale
+        y1 = coord[1] * scale
+        x2 = (coord[0] + 1) * scale
+        y2 = (coord[1] + 1) * scale
+
         if not smooth:
-            image.putpixel(coord, fg)
+            draw.rectangle((x1, y1, x2, y2), fill=fg)
             continue
-        image.putpixel(coord, smooth_color(fg, bg, fact, 10))
+        draw.rectangle((x1, y1, x2, y2), fill=smooth_color(fg, bg, fact, 10))
     
     print(f"domas: info: file {path} processed.", file=stderr)
 
@@ -117,7 +127,15 @@ def main() -> None:
     if args.foreground not in COLORS:
         print(f"domas: error: invalid foreground {args.foreground}.", file=stderr)
         exit(1)
-
+    
+    if not args.scale.isdigit():
+        print(f"domas: error: invalid scale specifier {args.scale}.", file=stderr)
+        exit(1)
+    
+    if int(args.scale) == 0:
+        print(f"domas: error: scale specifier cannot be zero.", file=stderr)
+        exit(1)
+    
     bg = COLORS.get(args.background, None)
     fg = COLORS.get(args.foreground, None)
     f = Format.match_format(args.format)
@@ -130,10 +148,10 @@ def main() -> None:
             p = pathjoin(args.path, p)
             if isdir(p):
                 continue
-            domas(p, args.output, (bg, fg), args.smooth, f)
+            domas(p, args.output, (bg, fg), args.smooth, int(args.scale), f)
         return
 
-    domas(args.path, args.output, (bg, fg), args.smooth, f)
+    domas(args.path, args.output, (bg, fg), args.smooth, int(args.scale), f)
 
 
 if __name__ == "__main__":

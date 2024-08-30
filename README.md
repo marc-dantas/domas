@@ -50,6 +50,11 @@ Here are some files with the smooth flag enabled:
 | --- | --- | --- | --- |
 | ![Text](./examples/output/smooth/lorem.out.png)  | ![Image](./examples/output/smooth/bliss.out.png) | ![Executable](./examples/output/smooth/program.out.png) | ![Audio](./examples/output/smooth/starwars.out.png) |
 
+#### The `--scale` flag
+This flag is very simple, it just scales the final image in times specified by the flag value. Default is 1x (256x256).
+
+> NOTE: This doesn't change the actual quality of the image, it just scales the pixels to fit in it.
+
 #### The `--format` flag
 
 You can choose one of the following image formats to generate:
